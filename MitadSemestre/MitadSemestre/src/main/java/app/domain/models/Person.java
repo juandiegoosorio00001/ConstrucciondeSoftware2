@@ -1,6 +1,5 @@
 package app.domain.models;
 
-
 public class Person {
 	private long document;
 	public long getDocument() {

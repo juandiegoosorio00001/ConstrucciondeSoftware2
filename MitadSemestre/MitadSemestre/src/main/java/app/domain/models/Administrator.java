@@ -1,21 +1,22 @@
 package app.domain.models;
 
 public class Administrator extends Person {
-	private long cedulaAdmin;
-	private String nameAdmin;
-	private int ageAdmin;
-	private String roleAdmin;
 	private String userAdmin;
-	private String passwordAdmin;
-	public Administrator(long document, String name, int age, String role, long cedulaAdmin, String nameAdmin,
-			int ageAdmin, String roleAdmin, String userAdmin, String passwordAdmin) {
+    private String passwordAdmin;
+	public Administrator(long document, String name, int age, String role) {
 		super(document, name, age, role);
-		this.cedulaAdmin = cedulaAdmin;
-		this.nameAdmin = nameAdmin;
-		this.ageAdmin = ageAdmin;
-		this.roleAdmin = roleAdmin;
+	}
+	public String getUserAdmin() {
+		return userAdmin;
+	}
+	public void setUserAdmin(String userAdmin) {
 		this.userAdmin = userAdmin;
+	}
+	public String getPasswordAdmin() {
+		return passwordAdmin;
+	}
+	public void setPasswordAdmin(String passwordAdmin) {
 		this.passwordAdmin = passwordAdmin;
 	}
-	
+    
 }
