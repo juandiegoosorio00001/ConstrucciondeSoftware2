@@ -84,7 +84,6 @@ INDEX VERSION 1.134+C:\Users\juand\Downloads\ConstrucciondeSoftware2\.metadata\.
 2491942801.index
 893739438.index
 3654070846.index
-259139631.index
 4054207149.index
 3155815358.index
 2799877234.index
