@@ -542,3 +542,9 @@ End of classname legend:
 2025-03-12 21:07:26,968 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-03-12 21:07:26,976 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-03-12 21:07:26,980 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\juand\Downloads\ConstrucciondeSoftware2\ConstrucciondeSoftware2\MitadSemestre\MitadSemestre\src\test\resources
+2025-03-12 21:13:13,663 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-12 21:13:13,671 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-12 21:13:13,681 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\juand\Downloads\ConstrucciondeSoftware2\ConstrucciondeSoftware2\MitadSemestre\MitadSemestre\src\test\resources
+2025-03-12 21:13:51,337 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-12 21:13:51,352 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-12 21:13:51,384 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\juand\Downloads\ConstrucciondeSoftware2\ConstrucciondeSoftware2\MitadSemestre\MitadSemestre\src\test\resources

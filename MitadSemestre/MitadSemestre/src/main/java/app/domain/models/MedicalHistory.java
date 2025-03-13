@@ -3,19 +3,19 @@ package app.domain.models;
 import java.util.List;
 
 public class MedicalHistory {
-    private final Mascot mascot;
-    private final Veterinarian veterinarian;
-    private final String reasonConsult;
-    private final String symptomatology;
-    private final String diagnosis;
-    private final String procedure;
-    private final String medication;
-    private final String medicationDosage;
-    private final String idOrder;
-    private final List<String> vaccinationRecord;
-    private final String allergyMedications;
-    private final String procedureDetail;
-    private final boolean orderCancellation;
+    private public Mascot mascot;
+    private public Veterinarian veterinarian;
+    private public String reasonConsult;
+    private public String symptomatology;
+    private public String diagnosis;
+    private public String procedure;
+    private public String medication;
+    private public String medicationDosage;
+    private public String idOrder;
+    private public List<String> vaccinationRecord;
+    private public String allergyMedications;
+    private public String procedureDetail;
+    private public boolean orderCancellation;
     
 	public MedicalHistory(Mascot mascot, Veterinarian veterinarian, String reasonConsult, String symptomatology,
 			String diagnosis, String procedure, String medication, String medicationDosage, String idOrder,
