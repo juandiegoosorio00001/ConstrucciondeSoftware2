@@ -1,0 +1,34 @@
+package Repositorys;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import app.domain.models.Order;
+import ports.OrderPort;
+import java.util.List;
+
+@Repository
+public class OrderRepository implements OrderPort {
+
+    @Autowired
+    private OrderJpaRepository orderJpaRepository;  // Asumimos que tienes un repositorio JPA
+    
+    @Override
+    public void saveOrder(Order order) {
+        orderJpaRepository.save(order);
+    }
+
+    @Override
+    public Order findOrderById(long orderId) {
+        return orderJpaRepository.findById(orderId).orElse(null);
+    }
+
+    @Override
+    public List<Order> findOrdersByMascotId(long mascotId) {
+        return orderJpaRepository.findByMascotId(mascotId);  // Asumiendo que tienes un método adecuado en el JPA repository
+    }
+
+    @Override
+    public void updateOrder(Order order) {
+        orderJpaRepository.save(order);
+    }
+}

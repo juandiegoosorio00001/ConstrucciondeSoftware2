@@ -1,0 +1,5 @@
+package adapters.inputs;
+
+public class LoginInput {
+
+}
