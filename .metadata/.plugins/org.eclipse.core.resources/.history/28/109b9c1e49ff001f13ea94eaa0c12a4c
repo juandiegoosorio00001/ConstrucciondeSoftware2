@@ -1,0 +1,31 @@
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import app.domain.models.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ports.PersonPort;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public class AdminService {
+	@Autowired
+	private PersonPort personPort;
+
+    public void registerVeterinarian(User user)throws Exception{
+        
+        if (PersonPort.existPerson(User.getDocument())){
+            throw new Exception("ya existe una persona con esa cedula");
+        }
+        if (userPort.existUserName(User.getUserName())){
+            throw new Exception("ya existe ese username registrado");
+        }
+        veterinarian.setRole("veterinarian");
+        personPort.savePerson(user);
+        userPort.saveUser(user);
+        veterinarianPort.saveVeterinarian(user);
+    }
+}
