@@ -25,7 +25,7 @@ public class AdminService {
             throw new Exception("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese username registrado");
+            throw new Exception("ya existe ese nombre de usuario registrado");
         }
         user.setRole("veterinarian");
         personPort.savePerson(user);
@@ -38,7 +38,7 @@ public class AdminService {
             throw new Exception("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese username registrado");
+            throw new Exception("ya existe ese nombre de usuario registrado");
         }
         user.setRole("Seller");
         personPort.savePerson(user);
@@ -50,11 +50,10 @@ public class AdminService {
             throw new Exception("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese username registrado");
+            throw new Exception("ya existe ese nombre de usuario registrado");
         }
         user.setRole("Owner");
         personPort.savePerson(user);
         userPort.saveUser(user);
-        
     }
 }

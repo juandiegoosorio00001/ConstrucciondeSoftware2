@@ -1,13 +1,8 @@
 package app.domain.models;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 public class User extends Person{
 	 private long userId;
 	 private String userName;
-	 private long password;
+	 private String password;
 	 private String role;
 	 
 	public User(long document, String name, int age, String role) {
@@ -25,10 +20,10 @@ public class User extends Person{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public long getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(long password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getRole() {

@@ -2,7 +2,7 @@ package app.domain.models;
 
 import java.sql.Date;
 
-public class invoice {
+public class Invoice {
 	private long invoiceId;
     private long mascotId;
     private long ownerDocument;
@@ -11,7 +11,7 @@ public class invoice {
     private double value;
     private int quantity;
     private Date date;
-	public invoice(long invoiceId, long mascotId, long ownerDocument, long orderId, String productName, double value,
+	public Invoice(long invoiceId, long mascotId, long ownerDocument, long orderId, String productName, double value,
 			int quantity, Date date) {
 		super();
 		this.invoiceId = invoiceId;
