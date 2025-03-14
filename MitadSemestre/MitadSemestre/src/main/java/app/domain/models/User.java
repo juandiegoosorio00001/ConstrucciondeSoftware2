@@ -5,7 +5,7 @@ public class User extends Person{
 	 private String password;
 	 private String role;
 	 
-	public User(long document, String name, int age, String role) {
+	public User(long document, String name, int age, String role,long userId, String userName, String password) {
 		super(document, name, age, role);
 	}
 	public long getUserId() {
@@ -32,8 +32,5 @@ public class User extends Person{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	 
-	 
 	 
 }

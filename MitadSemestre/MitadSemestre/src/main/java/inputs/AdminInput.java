@@ -1,12 +1,24 @@
 package inputs;
-
-import org.antlr.v4.runtime.misc.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import Utils.PersonValidator;
+import Utils.UserValidator;
+import Utils.Utils;
+import app.domain.models.Person;
+import app.domain.models.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import ports.InputPort;
 import services.AdminService;
-
+@Component
+@NoArgsConstructor
 public class AdminInput implements InputPort{
+
+@Setter
+@Getter
+
 	@Autowired
 	private PersonValidator personValidator;
 	@Autowired
@@ -30,7 +42,7 @@ public class AdminInput implements InputPort{
 			String option = Utils.getReader().nextLine();
 			switch (option) {
 			case "1": {
-					this.createPartner();
+					this.createOwner();
 					return true;
 			}
 			case "6" :{
@@ -47,25 +59,20 @@ public class AdminInput implements InputPort{
 		}
 	}
 
-	private void createPartner() throws Exception {
-		System.out.println("ingrese el nombre del socio");
+	private void createOwner() throws Exception {
+		System.out.println("ingrese el nombre del dueño de la mascota");
 		String name = personValidator.nameValidator(Utils.getReader().nextLine());
-		System.out.println("ingrese el documento del socio");
+		System.out.println("ingrese el documento del dueño de la mascota");
 		long document = personValidator.documentValidator(Utils.getReader().nextLine());
-		System.out.println("ingrese el numero celular del socio");
-		long cellPhone = personValidator.cellPhoneValidator(Utils.getReader().nextLine());
-		System.out.println("ingrese el userName del socio");
+		System.out.println("ingrese el numero celular del dueño de la mascota");
+		int age = (int) personValidator.ageValidator(Utils.getReader().nextLine());
+		System.out.println("ingrese el userName del dueño de la mascota");
 		String userName = userValidator.userNameValidator(Utils.getReader().nextLine());
-		System.out.println("ingrese la contraseña socio");
+		System.out.println("ingrese la contraseña dueño de la mascota");
 		String password = userValidator.passwordValidator(Utils.getReader().nextLine());
-		Partner partner = new Partner();
-		partner.setDocument(document);
-		partner.setName(name);
-		partner.setCellPhone(cellPhone);
-		partner.setUserName(userName);
-		partner.setPassword(password);
-		partner.setRole("partner");
-		adminService.registerPartner(partner);
+		User user = new User(document, name, age, "owner", 0L, userName, password);
+
+	    adminService.registerOwner(user);
 	}
 }
-}
+
