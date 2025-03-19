@@ -26,7 +26,7 @@ public class AdminInput implements InputPort{
 	@Autowired
 	private AdminService adminService;
 
-	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear Socios." + " \n 2. ver facturas del club."
+	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear dueño de mascota." + " \n 2. ver facturas del club."
 			+ " \n 3. ver facturas de un socio." + " \n 4. ver facturas de una persona." + " \n 5. promover socios."+ " \n 6. cerrar sesion.";
 
 	public void menu() {

@@ -1,0 +1,68 @@
+package app.adapters.user;
+
+import app.adapters.person.entity.PersonEntity;
+import app.adapters.user.entity.UserEntity;
+import app.adapters.user.repository.UserRepository;
+import app.domain.models.Person;
+import app.domain.models.User;
+import ports.UserPort;
+
+public class UserAdapter implements UserPort {
+	private UserRepository userRepository;
+	@Override
+	public boolean existUserName(String userName) {
+		return userRepository.existsByUserName(userName);
+	}
+
+	@Override
+	public void saveUser(User user) {
+		UserEntity userEntity = userEntityAdapter(user);
+	}
+
+	private UserEntity userEntityAdapter(User user) {
+		PersonEntity personEntity = personAdapter(user);
+		UserEntity userEntity = new UserEntity();
+		userEntity.setPersonId(personEntity);
+		userEntity.setUserName(user.getUserName());
+		userEntity.setPassword(user.getPassword());
+		userEntity.setRole(user.getRole());
+		return userEntity;
+		
+	}
+
+	@Override
+	public User findByUserName(User user) {
+		return null;
+	}
+	@Override
+	public User findByPersonId(Person person) {
+		PersonEntity personEntity = personAdapter(person);
+		UserEntity userEntity = userRepository.findByPersonId(personEntity);
+		User user = userAdapter(userEntity);
+		return user;
+	}
+	private PersonEntity personAdapter(Person person) {
+		PersonEntity personEntity = new PersonEntity();
+		personEntity.setPersonId(person.getPersonId());
+		personEntity.setDocument(person.getDocument());
+		personEntity.setName(person.getName());
+		personEntity.setAge(person.getAge());
+		return personEntity;
+	}
+	private User userAdapter(UserEntity userEntity) {
+		if (userEntity == null) {
+			return null;
+		}
+		User user = new User();
+		user.setPersonId(userEntity.getPersonId().getPersonId());
+		user.setDocument(userEntity.getPersonId().getDocument());
+		user.setName(userEntity.getPersonId().getName());
+		user.setAge(userEntity.getPersonId().getAge());
+		user.setUserName(userEntity.getUserName());
+		user.setPassword(userEntity.getPassword());
+		user.setRole(userEntity.getRole());
+		user.setUserId(userEntity.getUserId());
+		return user;
+		
+	}
+}
