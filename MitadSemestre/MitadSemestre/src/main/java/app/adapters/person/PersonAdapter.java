@@ -1,8 +1,10 @@
 package app.adapters.person;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.adapters.person.entity.PersonEntity;
+import app.adapters.person.repository.PersonRepository;
 import app.domain.models.Person;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,23 +17,26 @@ import ports.PersonPort;
 @Service
 public class PersonAdapter implements PersonPort {
 
+	@Autowired
+	private PersonRepository personRepository;
 	@Override
 	public boolean existPerson(long document) {
-		// TODO Auto-generated method stub
-		return false;
+		return personRepository.existsByDocument(document);
 	}
 
 	@Override
-	public void savePerson(Person Person) {
-		// TODO Auto-generated method stub
-		
+	public void savePerson(Person person) {
+		PersonEntity personEntity = personAdapter(person);
+		personRepository.save(personEntity);
+		person.setPersonId(personEntity.getPersonId());
 	}
 
 	@Override
 	public Person findByDocument(long document) {
-		// TODO Auto-generated method stub
-		return null;
+		PersonEntity personEntity = personRepository.findByDocument(document);
+		return personAdapter(personEntity);
 	}
+
 	private Person personAdapter(PersonEntity personEntity) {
 		Person person= new Person();
 		person.setPersonId(personEntity.getPersonId());

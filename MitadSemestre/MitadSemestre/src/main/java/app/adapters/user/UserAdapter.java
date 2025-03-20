@@ -17,6 +17,8 @@ public class UserAdapter implements UserPort {
 	@Override
 	public void saveUser(User user) {
 		UserEntity userEntity = userEntityAdapter(user);
+		userRepository.save(userEntity);
+		user.setUserId(userEntity.getUserId());
 	}
 
 	private UserEntity userEntityAdapter(User user) {
@@ -32,7 +34,11 @@ public class UserAdapter implements UserPort {
 
 	@Override
 	public User findByUserName(User user) {
-		return null;
+		UserEntity userEntity = userRepository.findByUserName(user.getUserName());
+		if (userEntity == null){
+			return null;
+		}
+		return userAdapter(userEntity);
 	}
 	@Override
 	public User findByPersonId(Person person) {

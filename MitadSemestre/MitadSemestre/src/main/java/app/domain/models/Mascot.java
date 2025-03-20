@@ -11,18 +11,7 @@ public class Mascot {
     private String characteristics;
     private double weight;  
     private LocalDate dateCreated;
-	public Mascot(String mascotName, long mascotId, long ageMascot, String species, String breed,
-			String characteristics, double weight, LocalDate dateCreated) {
-		super();
-		this.mascotName = mascotName;
-		this.mascotId = mascotId;
-		this.ageMascot = ageMascot;
-		this.species = species;
-		this.breed = breed;
-		this.characteristics = characteristics;
-		this.weight = weight;
-		this.dateCreated = dateCreated;
-	}
+    public User user;
 	public String getMascotName() {
 		return mascotName;
 	}
@@ -71,5 +60,13 @@ public class Mascot {
 	public void setDateCreated(LocalDate dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 	
 }
