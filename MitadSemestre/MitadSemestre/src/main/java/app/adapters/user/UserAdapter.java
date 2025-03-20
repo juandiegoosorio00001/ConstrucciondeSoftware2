@@ -5,7 +5,7 @@ import app.adapters.user.entity.UserEntity;
 import app.adapters.user.repository.UserRepository;
 import app.domain.models.Person;
 import app.domain.models.User;
-import ports.UserPort;
+import app.ports.UserPort;
 
 public class UserAdapter implements UserPort {
 	private UserRepository userRepository;

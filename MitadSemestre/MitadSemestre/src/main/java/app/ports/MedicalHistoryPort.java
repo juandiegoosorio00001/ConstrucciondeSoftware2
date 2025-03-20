@@ -1,4 +1,4 @@
-package ports;
+package app.ports;
 
 import app.domain.models.MedicalHistory;
 import java.util.List;

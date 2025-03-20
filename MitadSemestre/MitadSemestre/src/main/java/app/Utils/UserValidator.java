@@ -1,4 +1,4 @@
-package Utils;
+package app.Utils;
 
 import org.springframework.stereotype.Component;
 

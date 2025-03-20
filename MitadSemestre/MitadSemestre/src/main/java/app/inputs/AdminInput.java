@@ -1,22 +1,18 @@
-package inputs;
-import java.util.HashMap;
-import java.util.Map;
-
+package app.inputs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import Utils.PersonValidator;
-import Utils.UserValidator;
-import Utils.Utils;
+import app.Utils.PersonValidator;
+import app.Utils.UserValidator;
+import app.Utils.Utils;
 import app.domain.models.Mascot;
-import app.domain.models.Person;
 import app.domain.models.User;
+import app.domain.services.AdminService;
+import app.domain.services.PetService;
+import app.ports.InputPort;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ports.InputPort;
-import services.AdminService;
-import services.PetService;
 @Component
 @NoArgsConstructor
 public class AdminInput implements InputPort{

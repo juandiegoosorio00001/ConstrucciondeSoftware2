@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserEntity {
 	@Id
-	@Column(name="user_id")
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
 	@JoinColumn(name="person_id")

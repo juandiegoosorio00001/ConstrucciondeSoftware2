@@ -1,7 +1,8 @@
-package services;
+package app.domain.services;
 
 import app.domain.models.Mascot;
-import ports.MascotPort;
+import app.ports.MascotPort;
+
 import java.util.List;
 
 public class PetService {

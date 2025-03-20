@@ -1,12 +1,13 @@
-package services;
+package app.domain.services;
 
 import app.domain.models.MedicalHistory;
 import app.domain.models.Mascot;
 import app.domain.models.Order;
 import app.domain.models.User;
-import ports.MedicalHistoryPort;
-import ports.MascotPort;
-import ports.OrderPort;
+import app.ports.MascotPort;
+import app.ports.MedicalHistoryPort;
+import app.ports.OrderPort;
+
 import java.util.List;
 
 public class VeterinarianService {

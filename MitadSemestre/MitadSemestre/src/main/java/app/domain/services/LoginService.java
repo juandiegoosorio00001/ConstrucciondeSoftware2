@@ -1,13 +1,13 @@
-package services;
+package app.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.domain.models.User;
+import app.ports.UserPort;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ports.UserPort;
 
 @Setter
 @Getter
