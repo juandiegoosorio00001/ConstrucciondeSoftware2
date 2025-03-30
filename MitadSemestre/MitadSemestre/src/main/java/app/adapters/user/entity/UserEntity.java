@@ -9,14 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name="user")
-@Setter
-@Getter
 @NoArgsConstructor
 public class UserEntity {
 	@Id
@@ -25,13 +21,43 @@ public class UserEntity {
 	private long userId;
 	@JoinColumn(name="person_id")
 	@OneToOne
-	private PersonEntity PersonId;
+	private PersonEntity person;
 	@Column(name="user_name")
 	private String userName;
 	@Column(name="password")
 	private String password;
 	@Column(name="role")
 	private String role;
+	public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+	public PersonEntity getPerson() {
+		return person;
+	}
+	public void setPerson(PersonEntity person) {
+		this.person = person;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 	
 }

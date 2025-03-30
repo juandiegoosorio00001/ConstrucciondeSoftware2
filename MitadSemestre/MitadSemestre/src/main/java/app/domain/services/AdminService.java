@@ -19,7 +19,8 @@ public class AdminService {
 	private PersonPort personPort;
 	@Autowired
 	private UserPort userPort;
-
+	
+	
     public void registerVeterinarian(User user)throws Exception{
     	
         

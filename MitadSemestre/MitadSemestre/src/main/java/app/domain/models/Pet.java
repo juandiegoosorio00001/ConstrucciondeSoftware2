@@ -2,33 +2,33 @@ package app.domain.models;
 
 import java.time.LocalDate;
 
-public class Mascot {
-    private String mascotName;
-    private long mascotId;
-    private long ageMascot;
+public class Pet {
+    private String petName;
+    private long petId;
+    private long agePet;
     private String species;
     private String breed;
     private String characteristics;
     private double weight;  
     private LocalDate dateCreated;
-    public User user;
-	public String getMascotName() {
-		return mascotName;
+    private Person person;
+	public String getPetName() {
+		return petName;
 	}
-	public void setMascotName(String mascotName) {
-		this.mascotName = mascotName;
+	public void setPetName(String petName) {
+		this.petName = petName;
 	}
-	public long getMascotId() {
-		return mascotId;
+	public long getPetId() {
+		return petId;
 	}
-	public void setMascotId(long mascotId) {
-		this.mascotId = mascotId;
+	public void setPetId(long petId) {
+		this.petId = petId;
 	}
-	public long getAgeMascot() {
-		return ageMascot;
+	public long getAgePet() {
+		return agePet;
 	}
-	public void setAgeMascot(long ageMascot) {
-		this.ageMascot = ageMascot;
+	public void setAgePet(long agePet) {
+		this.agePet = agePet;
 	}
 	public String getSpecies() {
 		return species;
@@ -60,13 +60,11 @@ public class Mascot {
 	public void setDateCreated(LocalDate dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	public User getUser() {
-		return user;
+	public Person getPerson() {
+		return person;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
-	
-	
 	
 }

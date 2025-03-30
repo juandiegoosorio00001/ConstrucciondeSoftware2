@@ -1,12 +1,13 @@
 package app.ports;
 
-import app.domain.models.Mascot;
+import app.domain.models.Pet;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
-public interface MascotPort {
-    void saveMascot(Mascot mascot);
-    Mascot findMascotById(long mascotId);
-    List<Mascot> findMascotsByOwnerDocument(long ownerDocument);
-    void updateMascot(Mascot mascot);
+public interface PetPort {
+    void savePet(Pet pet);
+    Pet findPetById(long petId);
+    List<Pet> findPetsByOwnerDocument(long ownerDocument);
+    void updatePet(Pet pet);
 
 }

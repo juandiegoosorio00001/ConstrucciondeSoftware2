@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import app.inputs.LoginInput;
+import app.adapters.inputs.LoginInput;
 
 @SpringBootApplication
 public class VeterinariaApplication implements CommandLineRunner {

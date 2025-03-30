@@ -7,12 +7,12 @@ public interface MedicalHistoryPort {
 
     void saveMedicalHistory(MedicalHistory medicalHistory);
 
-    MedicalHistory findMedicalHistoryByMascotId(long mascotId);
+    MedicalHistory findMedicalHistoryByPetId(long petId);
 
-    List<MedicalHistory> findAllMedicalHistoriesByMascotId(long mascotId);
+    List<MedicalHistory> findAllMedicalHistoriesByPetId(long petId);
 
     void updateMedicalHistory(MedicalHistory medicalHistory);
 
-    void deleteMedicalHistory(long mascotId);
+    void deleteMedicalHistory(long petId);
 }
 

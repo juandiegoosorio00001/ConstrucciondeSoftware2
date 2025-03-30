@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class MedicalHistory {
-    public Mascot mascot;
+    public Pet pet;
     public String reasonConsult;
     public String symptomatology;
     public String diagnosis;
@@ -22,5 +22,22 @@ public class MedicalHistory {
     public String allergyMedications;
     public String procedureDetail;
     public boolean orderCancellation;
+	public MedicalHistory(Pet pet, String reasonConsult, String symptomatology, String diagnosis, String procedure,
+			String medication, String medicationDosage, String idOrder, List<String> vaccinationRecord,
+			String allergyMedications, String procedureDetail, boolean orderCancellation) {
+		super();
+		this.pet = pet;
+		this.reasonConsult = reasonConsult;
+		this.symptomatology = symptomatology;
+		this.diagnosis = diagnosis;
+		this.procedure = procedure;
+		this.medication = medication;
+		this.medicationDosage = medicationDosage;
+		this.idOrder = idOrder;
+		this.vaccinationRecord = vaccinationRecord;
+		this.allergyMedications = allergyMedications;
+		this.procedureDetail = procedureDetail;
+		this.orderCancellation = orderCancellation;
+	}
  
 }

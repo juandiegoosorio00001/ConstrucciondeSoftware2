@@ -1,38 +1,40 @@
 package app.domain.services;
 
-import app.domain.models.Mascot;
-import app.ports.MascotPort;
+import app.domain.models.Pet;
+import app.ports.PetPort;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PetService {
+    private PetPort petPort;
 
-    private MascotPort mascotPort;
-
-    public PetService(MascotPort mascotPort) {
-        this.mascotPort = mascotPort;
+    public PetService(PetPort petPort) {
+        this.petPort = petPort;
     }
 
-    public void registerPet(Mascot newMascot) throws Exception {
+    public void registerPet(Pet newPet) throws Exception {
 
-        mascotPort.saveMascot(newMascot);
+        petPort.savePet(newPet);
         
         System.out.println("La mascota ha sido registrada exitosamente.");
     }
 
-    public Mascot getMascotById(long mascotId) throws Exception {
-        Mascot mascot = mascotPort.findMascotById(mascotId);
-        if (mascot == null) {
+    public Pet getPetById(long petId) throws Exception {
+        Pet pet = petPort.findPetById(petId);
+        if (pet == null) {
             throw new Exception("Mascota no encontrada");
         }
-        return mascot;
+        return pet;
     }
 
-    public List<Mascot> getPetsByOwner(long ownerDocument) throws Exception {
-        List<Mascot> mascots = mascotPort.findMascotsByOwnerDocument(ownerDocument);
-        if (mascots == null || mascots.isEmpty()) {
+    public List<Pet> getPetsByOwner(long ownerDocument) throws Exception {
+        List<Pet> pets = petPort.findPetsByOwnerDocument(ownerDocument);
+        if (pets == null || pets.isEmpty()) {
             throw new Exception("No se encontraron mascotas para este dueño");
         }
-        return mascots;
+        return pets;
     }
 }

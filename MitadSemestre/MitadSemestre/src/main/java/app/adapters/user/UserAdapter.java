@@ -1,5 +1,7 @@
 package app.adapters.user;
 
+import org.springframework.stereotype.Service;
+
 import app.adapters.person.entity.PersonEntity;
 import app.adapters.user.entity.UserEntity;
 import app.adapters.user.repository.UserRepository;
@@ -7,6 +9,7 @@ import app.domain.models.Person;
 import app.domain.models.User;
 import app.ports.UserPort;
 
+@Service
 public class UserAdapter implements UserPort {
 	private UserRepository userRepository;
 	@Override
@@ -24,7 +27,7 @@ public class UserAdapter implements UserPort {
 	private UserEntity userEntityAdapter(User user) {
 		PersonEntity personEntity = personAdapter(user);
 		UserEntity userEntity = new UserEntity();
-		userEntity.setPersonId(personEntity);
+		userEntity.setPerson(personEntity);
 		userEntity.setUserName(user.getUserName());
 		userEntity.setPassword(user.getPassword());
 		userEntity.setRole(user.getRole());
@@ -60,10 +63,10 @@ public class UserAdapter implements UserPort {
 			return null;
 		}
 		User user = new User();
-		user.setPersonId(userEntity.getPersonId().getPersonId());
-		user.setDocument(userEntity.getPersonId().getDocument());
-		user.setName(userEntity.getPersonId().getName());
-		user.setAge(userEntity.getPersonId().getAge());
+		user.setPersonId(userEntity.getPerson().getPersonId());
+		user.setDocument(userEntity.getPerson().getDocument());
+		user.setName(userEntity.getPerson().getName());
+		user.setAge(userEntity.getPerson().getAge());
 		user.setUserName(userEntity.getUserName());
 		user.setPassword(userEntity.getPassword());
 		user.setRole(userEntity.getRole());

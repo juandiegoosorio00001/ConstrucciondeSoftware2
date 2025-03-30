@@ -1,11 +1,11 @@
-package app.inputs;
+package app.adapters.inputs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import app.Utils.PersonValidator;
 import app.Utils.UserValidator;
 import app.Utils.Utils;
-import app.domain.models.Mascot;
+import app.domain.models.Pet;
 import app.domain.models.User;
 import app.domain.services.AdminService;
 import app.domain.services.PetService;
@@ -29,8 +29,7 @@ public class AdminInput implements InputPort{
 	@Autowired
     private PetService petService;
 
-	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear dueño de mascota." + " \n 2. ver facturas del club."
-			+ " \n 3. ver facturas de un socio." + " \n 4. ver facturas de una persona." + " \n 5. promover socios."+ " \n 6. cerrar sesion.";
+	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear dueño de mascota.";
 
 	public void menu() {
 		boolean sesion = true;
@@ -46,9 +45,10 @@ public class AdminInput implements InputPort{
 			switch (option) {
 			case "1": {
 					this.createOwner();
+					this.createPet();
 					return true;
 			}
-			case "6" :{
+			case "4" :{
 				System.out.println("Se ha cerrado sesion");
 				return false;
 			}
@@ -82,7 +82,9 @@ public class AdminInput implements InputPort{
 	    user.setRole("dueño de mascota"); 
 	    adminService.registerOwner(user);
 	    System.out.println("El dueño de la mascota ha sido registrado exitosamente.");
-	    System.out.println("Ingrese el nombre de la mascota:");
+	}
+	private void createPet() throws Exception{
+		System.out.println("Ingrese el nombre de la mascota:");
 	    String petName = Utils.getReader().nextLine();
 	    System.out.println("Ingrese la especie de la mascota (perro, gato, etc.):");
 	    String species = Utils.getReader().nextLine();
@@ -92,14 +94,20 @@ public class AdminInput implements InputPort{
 	    String characteristics = Utils.getReader().nextLine();
 	    System.out.println("Ingrese el peso de la mascota:");
 	    double weight = Double.parseDouble(Utils.getReader().nextLine());
-	    Mascot newMascot = new Mascot();
-	    newMascot.setMascotName(petName);
-	    newMascot.setSpecies(species);
-	    newMascot.setBreed(breed);
-	    newMascot.setCharacteristics(characteristics);
-	    newMascot.setWeight(weight);
-	    newMascot.setUser(user); 
-	    petService.registerPet(newMascot);
+	    User user = new User();
+	    Pet newPet = new Pet();
+	    newPet.setPetName(petName);
+	    newPet.setSpecies(species);
+	    newPet.setBreed(breed);
+	    newPet.setCharacteristics(characteristics);
+	    newPet.setWeight(weight);
+	    newPet.setUser(user); 
+	    petService.registerPet(newPet);
+		
 	}
+	private void createVeterinarian() throws Exception{
+		
+	}
+	
 }
 

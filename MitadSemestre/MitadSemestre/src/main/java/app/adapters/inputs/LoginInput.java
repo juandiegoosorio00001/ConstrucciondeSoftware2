@@ -1,4 +1,4 @@
-package app.inputs;
+package app.adapters.inputs;
 
 import java.util.HashMap;
 import java.util.Map;
