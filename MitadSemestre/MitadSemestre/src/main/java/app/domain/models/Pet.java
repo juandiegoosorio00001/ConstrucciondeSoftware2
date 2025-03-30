@@ -12,6 +12,13 @@ public class Pet {
     private double weight;  
     private LocalDate dateCreated;
     private Person person;
+    private User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getPetName() {
 		return petName;
 	}

@@ -7,9 +7,6 @@ import app.domain.models.User;
 import app.ports.MedicalHistoryPort;
 import app.ports.OrderPort;
 import app.ports.PetPort;
-import app.domain.models.Person;
-
-import java.sql.Date;
 import java.util.List;
 
 public class VeterinarianService {
@@ -54,16 +51,15 @@ public class VeterinarianService {
         if (pet == null) {
             throw new Exception("Mascota no encontrada");
         }
-        
         MedicalHistory medicalHistory = new MedicalHistory();
     	Order order = new Order();
         order.setPet(pet);
         order.setMedicalHistory(medicalHistory);
         order.setMedicationName(medication);  
         order.setMedicationDosage(medicationDosage);  
-        order.setOwner(pet.getPerson().getPersonId());
+        order.setOwner(pet.getPerson());
         order.setVeterinarian(veterinarian); 
-        order.setGenerationDate(Date()); 
+        order.setGenerationDate(pet.getDateCreated());
         orderPort.saveOrder(order);
     }
 }
