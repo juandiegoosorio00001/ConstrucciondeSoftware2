@@ -21,7 +21,6 @@ public class MedicalHistoryAdapter implements MedicalHistoryPort {
 
 	@Override
 	public List<MedicalHistory> findAllMedicalHistoriesByPetId(long petId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

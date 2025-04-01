@@ -9,5 +9,4 @@ public interface PetPort {
     Pet findPetById(long petId);
     List<Pet> findPetsByOwnerDocument(long ownerDocument);
     void updatePet(Pet pet);
-
 }

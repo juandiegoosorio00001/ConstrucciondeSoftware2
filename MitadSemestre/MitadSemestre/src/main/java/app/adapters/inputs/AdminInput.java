@@ -29,7 +29,7 @@ public class AdminInput implements InputPort{
 	@Autowired
     private PetService petService;
 
-	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear dueño de mascota.";
+	private final String MENU = "Ingrese la opcion:" + " \n 1. para crear dueño de mascota. \\n 2. Crear Veterinario. \\n 3. Crear Vendedor. \\n 4. Cerrar Sesion";
 
 	public void menu() {
 		boolean sesion = true;
@@ -48,7 +48,11 @@ public class AdminInput implements InputPort{
 					this.createPet();
 					return true;
 			}
-			case "2" :{
+			case "2":{
+				this.createVeterinarian();
+				return true;
+			}
+			case "4" :{
 				System.out.println("Se ha cerrado sesion");
 				return false;
 			}
@@ -94,6 +98,8 @@ public class AdminInput implements InputPort{
 	    String characteristics = Utils.getReader().nextLine();
 	    System.out.println("Ingrese el peso de la mascota:");
 	    double weight = Double.parseDouble(Utils.getReader().nextLine());
+	    System.out.println("Ingrese el id de la mascota");
+	    long petId = Utils.getReader().nextLong();
 	    User user = new User();
 	    Pet newPet = new Pet();
 	    newPet.setPetName(petName);
@@ -101,12 +107,32 @@ public class AdminInput implements InputPort{
 	    newPet.setBreed(breed);
 	    newPet.setCharacteristics(characteristics);
 	    newPet.setWeight(weight);
+	    newPet.setPetId(petId); 
 	    newPet.setUser(user); 
+	    
 	    petService.registerPet(newPet);
 		
 	}
 	private void createVeterinarian() throws Exception{
-		
+		System.out.println("Ingrese el nombre del Veterinario:");
+	    String name = personValidator.nameValidator(Utils.getReader().nextLine());
+	    System.out.println("Ingrese el documento del Veterinario");
+	    long document = personValidator.documentValidator(Utils.getReader().nextLine());
+	    System.out.println("Ingrese la edad del Veterinario");
+	    int age = (int) personValidator.ageValidator(Utils.getReader().nextLine());
+	    System.out.println("Ingrese el nombre de usuario del Veterinario");
+	    String userName = userValidator.userNameValidator(Utils.getReader().nextLine());
+	    System.out.println("Ingrese la contraseña del Veterinario");
+	    String password = userValidator.passwordValidator(Utils.getReader().nextLine());
+	    User user = new User();
+	    user.setName(name);
+	    user.setDocument(document);
+	    user.setAge(age);
+	    user.setUserName(userName);
+	    user.setPassword(password);
+	    user.setRole("veterinario");
+	    adminService.registerVeterinarian(user);
+	    System.out.println("El Veterinario ha sido registrado exitosamente.");
 	}
 	
 }
