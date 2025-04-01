@@ -7,13 +7,20 @@ import app.domain.models.User;
 import app.ports.MedicalHistoryPort;
 import app.ports.OrderPort;
 import app.ports.PetPort;
+
+import java.sql.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
 public class VeterinarianService {
-
+	@Autowired
     private PetPort petPort;
+	@Autowired
     private MedicalHistoryPort medicalHistoryPort;
-    private OrderPort orderPort;
+	@Autowired
+	private OrderPort orderPort;
 
     public VeterinarianService(PetPort petPort, MedicalHistoryPort medicalHistoryPort, OrderPort orderPort) {
         this.petPort = petPort;
@@ -59,7 +66,7 @@ public class VeterinarianService {
         order.setMedicationDosage(medicationDosage);  
         order.setOwner(pet.getPerson());
         order.setVeterinarian(veterinarian); 
-        order.setGenerationDate(pet.getDateCreated());
+        order.setGenerationDate(new Date(System.currentTimeMillis()));
         orderPort.saveOrder(order);
     }
 }

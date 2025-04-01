@@ -48,7 +48,7 @@ public class AdminInput implements InputPort{
 					this.createPet();
 					return true;
 			}
-			case "4" :{
+			case "2" :{
 				System.out.println("Se ha cerrado sesion");
 				return false;
 			}

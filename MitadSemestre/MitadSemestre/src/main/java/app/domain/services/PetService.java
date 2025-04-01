@@ -5,10 +5,12 @@ import app.ports.PetPort;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PetService {
+	@Autowired
     private PetPort petPort;
 
     public PetService(PetPort petPort) {

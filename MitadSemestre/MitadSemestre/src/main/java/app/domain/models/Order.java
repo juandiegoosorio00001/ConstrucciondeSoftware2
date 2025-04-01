@@ -1,6 +1,6 @@
 package app.domain.models;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Order {
 	 private long orderId;
@@ -9,7 +9,7 @@ public class Order {
 	    private User veterinarian; 
 	    private String medicationName; 
 	    private String medicationDosage; 
-	    private LocalDate generationDate;  
+	    private Date generationDate;  
 	    private MedicalHistory medicalHistory;
 		public long getOrderId() {
 			return orderId;
@@ -47,10 +47,10 @@ public class Order {
 		public void setMedicationDosage(String medicationDosage) {
 			this.medicationDosage = medicationDosage;
 		}
-		public LocalDate getGenerationDate() {
+		public Date getGenerationDate() {
 			return generationDate;
 		}
-		public void setGenerationDate(LocalDate generationDate) {
+		public void setGenerationDate(Date generationDate) {
 			this.generationDate = generationDate;
 		}
 		public MedicalHistory getMedicalHistory() {

@@ -1,5 +1,6 @@
 package app.adapters.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.adapters.person.entity.PersonEntity;
@@ -8,9 +9,15 @@ import app.adapters.user.repository.UserRepository;
 import app.domain.models.Person;
 import app.domain.models.User;
 import app.ports.UserPort;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@NoArgsConstructor
 @Service
 public class UserAdapter implements UserPort {
+	@Autowired
 	private UserRepository userRepository;
 	@Override
 	public boolean existUserName(String userName) {

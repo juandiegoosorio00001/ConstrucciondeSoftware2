@@ -3,6 +3,7 @@ package app.domain.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.adapters.user.repository.UserRepository;
 import app.domain.models.User;
 import app.ports.PersonPort;
 import app.ports.UserPort;
@@ -19,6 +20,8 @@ public class AdminService {
 	private PersonPort personPort;
 	@Autowired
 	private UserPort userPort;
+	@Autowired
+    private UserRepository userRepository;
 	
 	
     public void registerVeterinarian(User user)throws Exception{

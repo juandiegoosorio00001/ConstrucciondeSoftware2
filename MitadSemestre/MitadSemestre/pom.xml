@@ -14,7 +14,7 @@
 	<name>Veterinaria</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
-	<licenses>
+<licenses>
 		<license/>
 	</licenses>
 	<developers>
@@ -84,5 +84,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

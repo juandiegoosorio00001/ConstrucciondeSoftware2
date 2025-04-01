@@ -19,7 +19,7 @@ public class UserEntity {
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
-	@JoinColumn(name="personid")
+	@JoinColumn(name="person_id")
 	@OneToOne
 	private PersonEntity person;
 	@Column(name="user_name")
