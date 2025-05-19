@@ -1,15 +1,20 @@
 package app.adapters.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import app.adapters.rest.request.PetRequest;
 import app.adapters.rest.request.UserRequest;
+import app.domain.models.Pet;
 import app.domain.models.User;
 import app.domain.services.AdminService;
+import app.domain.services.PetService;
+import app.exceptions.BussinesException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,20 +25,88 @@ import lombok.Setter;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private PetService petService;
 
 	@GetMapping("/")
 	public String estaVivo() {
 		return "estoy vivo";
 	}
- 	@PostMapping("/user")
-	public String creatUser(@RequestBody UserRequest request) throws Exception {
- 		User user = new User();
- 		user.setName(request.getName());
- 		user.setUserName(request.getUserName());
- 		user.setPassword(request.getPassword());
- 		user.setDocument(request.getDocument());
- 		user.setAge(request.getAge());
- 		adminService.registerVeterinarian(user);
- 		return "veterinario Creado";
+	
+ 	@PostMapping("/user/veterinarian")
+ 	
+	public ResponseEntity createVeterinarian(@RequestBody UserRequest request){
+ 	try{
+ 		 System.out.println(request.toString());
+ 		 User user = new User();
+ 		 user.setName(request.getName());
+ 		 user.setUserName(request.getUserName());
+ 		 user.setPassword(request.getPassword());
+ 		 user.setDocument(request.getDocument());
+ 		 user.setAge(request.getAge());
+ 		 adminService.registerVeterinarian(user);
+ 		 return new ResponseEntity<User>(user,HttpStatus.OK);
+ 	}catch (BussinesException be) {
+ 			return new ResponseEntity<>(be.getMessage(),HttpStatus.CONFLICT);
+	}catch (Exception e) {
+ 			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
  	}	
+ 	
+@PostMapping("/user/seller")
+ 	
+	public ResponseEntity createSeller(@RequestBody UserRequest request){
+ 	try{
+ 		 System.out.println(request.toString());
+ 		 User user = new User();
+ 		 user.setName(request.getName());
+ 		 user.setUserName(request.getUserName());
+ 		 user.setPassword(request.getPassword());
+ 		 user.setDocument(request.getDocument());
+ 		 user.setAge(request.getAge());
+ 		 adminService.registerSeller(user);
+ 		 return new ResponseEntity<User>(user,HttpStatus.OK);
+ 	}catch (BussinesException be) {
+ 			return new ResponseEntity<>(be.getMessage(),HttpStatus.CONFLICT);
+	}catch (Exception e) {
+ 			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+ 	}
+@PostMapping("/user/owner")
+	
+public ResponseEntity createOwner(@RequestBody UserRequest request){
+	try{
+		 System.out.println(request.toString());
+		 User user = new User();
+		 user.setName(request.getName());
+		 user.setUserName(request.getUserName());
+		 user.setPassword(request.getPassword());
+		 user.setDocument(request.getDocument());
+		 user.setAge(request.getAge());
+		 adminService.registerOwner(user);
+		 return new ResponseEntity<User>(user,HttpStatus.OK);
+	}catch (BussinesException be) {
+			return new ResponseEntity<>(be.getMessage(),HttpStatus.CONFLICT);
+}catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	}
+public ResponseEntity registerPet(@RequestBody PetRequest request) {
+    try {
+        Pet pet = new Pet();
+        pet.setPetName(request.getPetName());
+        pet.setAgePet(request.getAgePet());
+        pet.setBreed(request.getBreed());
+        pet.setCharacteristics(request.getCharacteristics());
+        pet.setDateCreated(request.getDateCreated());
+        pet.setSpecies(request.getSpecies());
+        pet.setWeight(request.getWeight());
+        /*pet.setPerson(Owner);  Falta esta linea preguntar como puedo asignar el documento del dueño a la mascota*/
+        petService.registerPet(pet);
+        return new ResponseEntity<Pet>(pet, HttpStatus.OK);
+    } catch (Exception e) {
+        return new ResponseEntity<>("Error al registrar la mascota: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
+}
+

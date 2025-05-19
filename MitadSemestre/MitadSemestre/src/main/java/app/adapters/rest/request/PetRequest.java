@@ -1,0 +1,82 @@
+package app.adapters.rest.request;
+
+import java.time.LocalDate;
+
+import org.antlr.v4.runtime.misc.NotNull;
+
+import app.domain.models.Person;
+import app.domain.models.User;
+
+public class PetRequest {
+	@NotNull
+	private String petName;
+    public String getPetName() {
+		return petName;
+	}
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+	public long getPetId() {
+		return petId;
+	}
+	public void setPetId(long petId) {
+		this.petId = petId;
+	}
+	public long getAgePet() {
+		return agePet;
+	}
+	public void setAgePet(long agePet) {
+		this.agePet = agePet;
+	}
+	public String getSpecies() {
+		return species;
+	}
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+	public String getBreed() {
+		return breed;
+	}
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	public String getCharacteristics() {
+		return characteristics;
+	}
+	public void setCharacteristics(String characteristics) {
+		this.characteristics = characteristics;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	public LocalDate getDateCreated() {
+		return dateCreated;
+	}
+	public void setDateCreated(LocalDate dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	private long petId;
+    private long agePet;
+    private String species;
+    private String breed;
+    private String characteristics;
+    private double weight;  
+    private LocalDate dateCreated;
+    private Person person;
+    private User user;
+}

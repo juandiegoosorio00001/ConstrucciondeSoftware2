@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import app.adapters.user.repository.UserRepository;
 import app.domain.models.User;
+import app.exceptions.BussinesException;
 import app.ports.PersonPort;
 import app.ports.UserPort;
 import lombok.Getter;
@@ -28,10 +29,10 @@ public class AdminService {
     	
         
         if (personPort.existPerson(user.getDocument())){
-            throw new Exception("ya existe una persona con esa cedula");
+            throw new BussinesException("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese nombre de usuario registrado");
+            throw new BussinesException("ya existe ese nombre de usuario registrado");
         }
         user.setRole("veterinarian");
         personPort.savePerson(user);
@@ -41,10 +42,10 @@ public class AdminService {
     	
         
         if (personPort.existPerson(user.getDocument())){
-            throw new Exception("ya existe una persona con esa cedula");
+            throw new BussinesException("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese nombre de usuario registrado");
+            throw new BussinesException("ya existe ese nombre de usuario registrado");
         }
         user.setRole("Seller");
         personPort.savePerson(user);
@@ -53,10 +54,10 @@ public class AdminService {
     public void registerOwner(User user)throws Exception{
    
         if (personPort.existPerson(user.getDocument())){
-            throw new Exception("ya existe una persona con esa cedula");
+            throw new BussinesException("ya existe una persona con esa cedula");
         }
         if (userPort.existUserName(user.getUserName())){
-            throw new Exception("ya existe ese nombre de usuario registrado");
+            throw new BussinesException("ya existe ese nombre de usuario registrado");
         }
         user.setRole("Owner");
         personPort.savePerson(user);
