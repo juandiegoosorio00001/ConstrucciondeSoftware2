@@ -1,5 +1,7 @@
 package app.domain.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,4 +65,8 @@ public class AdminService {
         personPort.savePerson(user);
         userPort.saveUser(user);
     }
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

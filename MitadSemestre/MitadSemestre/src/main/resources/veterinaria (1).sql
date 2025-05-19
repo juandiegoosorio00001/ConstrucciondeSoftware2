@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2025 a las 04:42:59
+-- Tiempo de generación: 19-05-2025 a las 15:02:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -34,6 +34,41 @@ CREATE TABLE `person` (
   `age` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `person`
+--
+
+INSERT INTO `person` (`id`, `document`, `name`, `age`) VALUES
+(1, 123, '123', 123),
+(2, 1021, 'juan', 20),
+(3, 10, 'miguel', 22),
+(4, 9090, 'jua', 22),
+(5, 9091, 'juan', 22),
+(6, 143, 'juan', 20),
+(7, 12345678, 'Juan Pérez', 30),
+(8, 3212, 'Rogelio', 20),
+(9, 2020, 'Rogelio', 20),
+(11, 3021, 'juanchito', 22),
+(12, 909190, 'laura jimenez', 42);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pet`
+--
+
+CREATE TABLE `pet` (
+  `id` bigint(20) NOT NULL,
+  `owner_id` bigint(20) NOT NULL,
+  `pet_name` varchar(30) NOT NULL,
+  `pet_age` bigint(20) NOT NULL,
+  `species` varchar(100) NOT NULL,
+  `breed` varchar(100) NOT NULL,
+  `characteristics` varchar(100) NOT NULL,
+  `weight` double NOT NULL,
+  `dateCreated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +84,22 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `person_id`, `user_name`, `password`, `role`) VALUES
+(1, 1, '123', '123', 'admin'),
+(2, 2, 'user1', 'user1', 'Owner'),
+(3, 3, 'veterinario', 'veterinario', 'veterinarian'),
+(4, 4, 'owner1', 'owner1', 'Owner'),
+(5, 5, 'dueño1', 'dueño1', 'Owner'),
+(6, 6, 'dueño5', 'dueño5', 'Owner'),
+(7, 7, 'juan', '123456', 'veterinarian'),
+(8, 8, 'fuka', 'Pancracio', 'veterinarian'),
+(10, 11, 'juanchis123', '2025', 'Seller'),
+(11, 12, 'laura', '9090', 'Owner');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -56,6 +107,12 @@ CREATE TABLE `user` (
 -- Indices de la tabla `person`
 --
 ALTER TABLE `person`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `pet`
+--
+ALTER TABLE `pet`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -72,13 +129,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `person`
 --
 ALTER TABLE `person`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `pet`
+--
+ALTER TABLE `pet`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
