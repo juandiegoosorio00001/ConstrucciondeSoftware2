@@ -58,17 +58,11 @@ public class PetRequest {
 	public void setDateCreated(LocalDate dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	public Person getPerson() {
+	public long getPerson() {
 		return person;
 	}
-	public void setPerson(Person person) {
+	public void setPerson(long person) {
 		this.person = person;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
 	}
 	private long petId;
     private long agePet;
@@ -77,6 +71,5 @@ public class PetRequest {
     private String characteristics;
     private double weight;  
     private LocalDate dateCreated;
-    private Person person;
-    private User user;
+    private long person;
 }

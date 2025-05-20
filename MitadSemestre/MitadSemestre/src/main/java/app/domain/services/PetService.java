@@ -1,24 +1,30 @@
 package app.domain.services;
 
-import app.domain.models.Pet;
-import app.ports.PetPort;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.domain.models.Person;
+import app.domain.models.Pet;
+import app.ports.PersonPort;
+import app.ports.PetPort;
+
 @Service
 public class PetService {
 	@Autowired
     private PetPort petPort;
+	@Autowired
+	private PersonPort personPort;
 
     public PetService(PetPort petPort) {
         this.petPort = petPort;
     }
 
     public void registerPet(Pet newPet) throws Exception {
-
+    	Person person = personPort.findByDocument(newPet.getPerson().getDocument());
+    	newPet.setPerson(person);
+    	
         petPort.savePet(newPet);
         
         System.out.println("La mascota ha sido registrada exitosamente.");

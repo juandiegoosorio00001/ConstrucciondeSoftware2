@@ -112,7 +112,8 @@ public ResponseEntity registerPet(@RequestBody PetRequest request) {
         pet.setSpecies(request.getSpecies());
         pet.setWeight(request.getWeight());
         Person person = new Person();
-        /*pet.setPerson(Owner);  Falta esta linea preguntar como puedo asignar el documento del dueño a la mascota*/
+        person.setDocument(request.getPerson());
+        pet.setPerson(person);  //Falta esta linea preguntar como puedo asignar el documento del dueño a la mascota*/
         petService.registerPet(pet);
         return new ResponseEntity("se ha creado la mascota",HttpStatus.OK);
 	}catch(BussinesException be) {
