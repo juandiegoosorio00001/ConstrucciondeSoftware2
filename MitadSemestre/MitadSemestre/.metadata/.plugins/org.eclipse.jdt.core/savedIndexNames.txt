@@ -1,2 +1,2 @@
-INDEX VERSION 1.134+C:\Users\juand\Downloads\ConstrucciondeSoftware2\ConstrucciondeSoftware2\MitadSemestre\MitadSemestre\.metadata\.plugins\org.eclipse.jdt.core
+INDEX VERSION 1.134+C:\Users\juand\Downloads\ConstrucciondeSoftware2\MitadSemestre\MitadSemestre\.metadata\.plugins\org.eclipse.jdt.core
 1067094681.index

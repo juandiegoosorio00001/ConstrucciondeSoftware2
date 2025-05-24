@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import app.domain.models.Person;
 import app.domain.models.Pet;
+import app.exceptions.BussinesException;
 import app.ports.PersonPort;
 import app.ports.PetPort;
 
@@ -22,6 +23,12 @@ public class PetService {
     }
 
     public void registerPet(Pet newPet) throws Exception {
+    	long ownerDocument = newPet.getPerson().getDocument();
+        Person existingPerson = personPort.findByDocument(ownerDocument);
+        if (existingPerson == null) {
+            throw new BussinesException("El propietario con documento " + ownerDocument + " no se encuentra registrado.");
+        }
+        
     	Person person = personPort.findByDocument(newPet.getPerson().getDocument());
     	newPet.setPerson(person);
     	

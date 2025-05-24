@@ -101,29 +101,7 @@ public ResponseEntity createOwner(@RequestBody UserRequest request){
 		return new ResponseEntity(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
-public ResponseEntity registerPet(@RequestBody PetRequest request) {
-    try {
-        Pet pet = new Pet();
-        pet.setPetName(request.getPetName());
-        pet.setAgePet(request.getAgePet());
-        pet.setBreed(request.getBreed());
-        pet.setCharacteristics(request.getCharacteristics());
-        pet.setDateCreated(request.getDateCreated());
-        pet.setSpecies(request.getSpecies());
-        pet.setWeight(request.getWeight());
-        Person person = new Person();
-        person.setDocument(request.getPerson());
-        pet.setPerson(person);  //Falta esta linea preguntar como puedo asignar el documento del dueño a la mascota*/
-        petService.registerPet(pet);
-        return new ResponseEntity("se ha creado la mascota",HttpStatus.OK);
-	}catch(BussinesException be) {
-		return new ResponseEntity(be.getMessage(),HttpStatus.CONFLICT);
-	}catch(InputsException ie) {
-		return new ResponseEntity(ie.getMessage(),HttpStatus.BAD_REQUEST);
-	}catch(Exception e) {
-		return new ResponseEntity(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-}
+
 	/*@GetMapping("/user")
 	public ResponseEntity getUsers() {
 		  List<User> users = adminService.getUsers();

@@ -4,11 +4,13 @@ import java.time.LocalDate;
 
 import org.antlr.v4.runtime.misc.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import app.domain.models.Person;
 import app.domain.models.User;
 
 public class PetRequest {
-	@NotNull
+	 @JsonProperty("pet_name")
 	private String petName;
     public String getPetName() {
 		return petName;
@@ -65,6 +67,7 @@ public class PetRequest {
 		this.person = person;
 	}
 	private long petId;
+	@JsonProperty("pet_age")
     private long agePet;
     private String species;
     private String breed;
