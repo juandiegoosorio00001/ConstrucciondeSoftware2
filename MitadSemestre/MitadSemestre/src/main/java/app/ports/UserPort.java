@@ -7,4 +7,5 @@ public interface UserPort {
 	public void saveUser(User user);
 	public User findByUserName(User user);
 	public User findByPersonId(Person person);
+	public User findUserById(long userId);
 }

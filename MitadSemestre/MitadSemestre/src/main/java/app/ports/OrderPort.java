@@ -1,15 +1,14 @@
 package app.ports;
 
+import app.domain.models.Order;
 import java.util.List;
 
-import app.domain.models.Order;
-
 public interface OrderPort {
-    
     void saveOrder(Order order);
-    
-    Order findOrderById(long orderId);
-    
-    List<Order> findOrdersByMascotId(long mascotId);
+    Order findOrderById(Long orderId);
+    List<Order> findAllOrders(); 
+    List<Order> findOrdersByPetId(Long petId);
+    List<Order> findOrdersByVeterinarianId(Long veterinarianId); 
     void updateOrder(Order order);
+    void deleteOrder(Long orderId);
 }

@@ -5,17 +5,17 @@ import java.util.List;
 import app.domain.models.User;
 
 public class ConsultRequest {
-    private User veterinarian;
-    private long petId;
-    private String reasonConsult;
-    private String symptomatology;
-    private String diagnosis;
-    private String procedure;
-    private String medication;
-    private String medicationDosage;
-    private List<String> vaccinationRecord;
-    private String allergyMedications;
-    private String procedureDetail;
+	 	private User veterinarian; 
+	    private long petId;
+	    private String reasonConsult;
+	    private String symptomatology;
+	    private String diagnosis;
+	    private String procedure;
+	    private String medication;
+	    private String medicationDosage;
+	    private List<String> vaccinationRecord;
+	    private String allergyMedications;
+	    private String procedureDetail;
 	public User getVeterinarian() {
 		return veterinarian;
 	}

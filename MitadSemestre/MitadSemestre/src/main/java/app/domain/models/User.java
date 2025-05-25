@@ -1,14 +1,14 @@
 package app.domain.models;
 
 public class User extends Person{
-	 private long userId;
+	 private Long userId;
 	 private String userName;
 	 private String password;
 	 private String role;
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {

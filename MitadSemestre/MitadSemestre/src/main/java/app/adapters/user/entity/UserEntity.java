@@ -18,7 +18,7 @@ public class UserEntity {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long userId;
+	private Long userId;
 	@JoinColumn(name="person_id")
 	@OneToOne
 	private PersonEntity person;
@@ -28,10 +28,10 @@ public class UserEntity {
 	private String password;
 	@Column(name="role")
 	private String role;
-	public long getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public PersonEntity getPerson() {

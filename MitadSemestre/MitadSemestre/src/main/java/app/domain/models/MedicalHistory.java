@@ -1,5 +1,6 @@
 package app.domain.models;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import lombok.Getter;
@@ -10,23 +11,29 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class MedicalHistory {
-    public Pet pet;
-    public String reasonConsult;
-    public String symptomatology;
-    public String diagnosis;
-    public String procedure;
-    public String medication;
-    public String medicationDosage;
-    public String idOrder;
-    public List<String> vaccinationRecord;
-    public String allergyMedications;
-    public String procedureDetail;
-    public boolean orderCancellation;
-	public MedicalHistory(Pet pet, String reasonConsult, String symptomatology, String diagnosis, String procedure,
-			String medication, String medicationDosage, String idOrder, List<String> vaccinationRecord,
-			String allergyMedications, String procedureDetail, boolean orderCancellation) {
+	private Long id; 
+    private Pet pet;
+    private User veterinarian;
+    private String reasonConsult;
+    private String symptomatology;
+    private String diagnosis;
+    private String procedure;
+    private String medication;
+    private String medicationDosage;
+    private String idOrder;
+    private List<String> vaccinationRecord;
+    private String allergyMedications;
+    private String procedureDetail;
+    private boolean orderCancellation;
+    private LocalDate consultDate;
+	public MedicalHistory(Long id, Pet pet, User veterinarian, String reasonConsult, String symptomatology,
+			String diagnosis, String procedure, String medication, String medicationDosage, String idOrder,
+			List<String> vaccinationRecord, String allergyMedications, String procedureDetail,
+			boolean orderCancellation, LocalDate consultDate) {
 		super();
+		this.id = id;
 		this.pet = pet;
+		this.veterinarian = veterinarian;
 		this.reasonConsult = reasonConsult;
 		this.symptomatology = symptomatology;
 		this.diagnosis = diagnosis;
@@ -38,6 +45,8 @@ public class MedicalHistory {
 		this.allergyMedications = allergyMedications;
 		this.procedureDetail = procedureDetail;
 		this.orderCancellation = orderCancellation;
+		this.consultDate = consultDate;
 	}
- 
+    
+    
 }

@@ -50,49 +50,25 @@ public class VeterinarianController {
     }
     
     @PostMapping("/consult")
-    public ResponseEntity<String> makeConsult(
-            @RequestBody ConsultRequest request
-    ) {
+    public ResponseEntity<String> makeConsultAndOrder(@RequestBody ConsultRequest request) {
         try {
-            veterinarianService.makeConsult(
-                    request.getVeterinarian(),
-                    request.getPetId(),
-                    request.getReasonConsult(),
-                    request.getSymptomatology(),
-                    request.getDiagnosis(),
-                    request.getProcedure(),
-                    request.getMedication(),
-                    request.getMedicationDosage(),
-                    request.getVaccinationRecord(),
-                    request.getAllergyMedications(),
-                    request.getProcedureDetail()
+            veterinarianService.makeConsultAndCreateOrder(
+                request.getVeterinarian(),
+                request.getPetId(),
+                request.getReasonConsult(),
+                request.getSymptomatology(),
+                request.getDiagnosis(),
+                request.getProcedure(),
+                request.getMedication(),
+                request.getMedicationDosage(),
+                request.getVaccinationRecord(),
+                request.getAllergyMedications(),
+                request.getProcedureDetail()
             );
-            return new ResponseEntity<>("Consulta médica registrada exitosamente.", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Consulta y Orden registradas exitosamente.", HttpStatus.CREATED);
+        } catch (Exception e) { 
+            return new ResponseEntity<>("Error al registrar la consulta y la orden: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
-    @PostMapping("/order")
-    public ResponseEntity<String> createOrder(@RequestBody ConsultRequest request) {
-        try {
-            veterinarianService.createOrder(
-                    request.getVeterinarian(),
-                    request.getPetId(),
-                    request.getReasonConsult(),
-                    request.getSymptomatology(),
-                    request.getDiagnosis(),
-                    request.getProcedure(),
-                    request.getMedication(),
-                    request.getMedicationDosage(),
-                    request.getVaccinationRecord(),
-                    request.getAllergyMedications(),
-                    request.getProcedureDetail()
-            );
-            return new ResponseEntity<>("Orden creada exitosamente.", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
 }
+

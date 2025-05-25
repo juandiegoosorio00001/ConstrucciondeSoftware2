@@ -83,11 +83,17 @@ public class PetAdapter implements PetPort {
         pet.setBreed(entity.getBreed());
         pet.setCharacteristics(entity.getCharacteristics());
         pet.setWeight(entity.getWeight());
-        pet.setDateCreated(entity.getDateCreated().toLocalDate());
-
-        Person person = new Person();
-        person.setDocument(entity.getPerson().getDocument());
-        pet.setPerson(person);
+        pet.setDateCreated(entity.getDateCreated().toLocalDate()); 
+        if (entity.getPerson() != null) {
+            Person person = new Person();
+            person.setPersonId(entity.getPerson().getPersonId());
+            person.setDocument(entity.getPerson().getDocument());
+            person.setName(entity.getPerson().getName());
+            person.setAge(entity.getPerson().getAge());
+            pet.setPerson(person); 
+        } else {
+            pet.setPerson(null); 
+        }
 
         return pet;
     }

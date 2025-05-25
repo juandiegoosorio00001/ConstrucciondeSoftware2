@@ -1,9 +1,12 @@
 package app.adapters.user;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.adapters.person.entity.PersonEntity;
+import app.adapters.person.repository.PersonRepository;
 import app.adapters.user.entity.UserEntity;
 import app.adapters.user.repository.UserRepository;
 import app.domain.models.Person;
@@ -19,6 +22,8 @@ import lombok.Setter;
 public class UserAdapter implements UserPort {
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+    private PersonRepository personRepository;
 	@Override
 	public boolean existUserName(String userName) {
 		return userRepository.existsByUserName(userName);
@@ -81,4 +86,11 @@ public class UserAdapter implements UserPort {
 		return user;
 		
 	}
+
+	 @Override
+	    public User findUserById(long userId) { 
+		 	
+	        Optional<UserEntity> userEntityOptional = userRepository.findById(userId);
+	        return userEntityOptional.map(this::userAdapter).orElse(null);
+	    }
 }

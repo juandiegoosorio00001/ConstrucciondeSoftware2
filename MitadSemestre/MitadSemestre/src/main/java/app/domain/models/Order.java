@@ -1,63 +1,42 @@
 package app.domain.models;
 
-import java.sql.Date;
+import java.time.LocalDate; // Usar LocalDate para fechas sin tiempo
+// import java.sql.Date; // Eliminar esta importación
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class Order {
-	 private long orderId;
-	    private Pet pet;       
-	    private Person owner;    
-	    private User veterinarian; 
-	    private String medicationName; 
-	    private String medicationDosage; 
-	    private Date generationDate;  
-	    private MedicalHistory medicalHistory;
-		public long getOrderId() {
-			return orderId;
-		}
-		public void setOrderId(long orderId) {
-			this.orderId = orderId;
-		}
-		public Pet getPet() {
-			return pet;
-		}
-		public void setPet(Pet pet) {
-			this.pet = pet;
-		}
-		public Person getOwner() {
-			return owner;
-		}
-		public void setOwner(Person owner) {
-			this.owner = owner;
-		}
-		public User getVeterinarian() {
-			return veterinarian;
-		}
-		public void setVeterinarian(User veterinarian) {
-			this.veterinarian = veterinarian;
-		}
-		public String getMedicationName() {
-			return medicationName;
-		}
-		public void setMedicationName(String medicationName) {
-			this.medicationName = medicationName;
-		}
-		public String getMedicationDosage() {
-			return medicationDosage;
-		}
-		public void setMedicationDosage(String medicationDosage) {
-			this.medicationDosage = medicationDosage;
-		}
-		public Date getGenerationDate() {
-			return generationDate;
-		}
-		public void setGenerationDate(Date generationDate) {
-			this.generationDate = generationDate;
-		}
-		public MedicalHistory getMedicalHistory() {
-			return medicalHistory;
-		}
-		public void setMedicalHistory(MedicalHistory medicalHistory) {
-			this.medicalHistory = medicalHistory;
-		}
-	    
+    private Long orderId;
+    private Pet pet;
+    private Person owner;
+    private User veterinarian; 
+    private String medicationName;
+    private String medicationDosage;
+    private LocalDate generationDate;
+    private MedicalHistory medicalHistory;
+    private String orderStatus; 
+    private String cancellationReason;
+    private LocalDate cancellationDate;
+	public Order(Long orderId, Pet pet, Person owner, User veterinarian, String medicationName, String medicationDosage,
+			LocalDate generationDate, MedicalHistory medicalHistory, String orderStatus, String cancellationReason,
+			LocalDate cancellationDate) {
+		super();
+		this.orderId = orderId;
+		this.pet = pet;
+		this.owner = owner;
+		this.veterinarian = veterinarian;
+		this.medicationName = medicationName;
+		this.medicationDosage = medicationDosage;
+		this.generationDate = generationDate;
+		this.medicalHistory = medicalHistory;
+		this.orderStatus = orderStatus;
+		this.cancellationReason = cancellationReason;
+		this.cancellationDate = cancellationDate;
+	} 
+    
 }
